@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Prediction</title>
+</head>
+<body>
+    <h1>Neural Network Prediction</h1>
+    
+    <form id="prediction-form">
+        <h3>Numerical Inputs</h3>
+        <input type="number" id="Age" placeholder="Age">
+        <input type="number" id="DailyRate" placeholder="Daily Rate">
+        <input type="number" id="DistanceFromHome" placeholder="Distance From Home">
+        <input type="number" id="HourlyRate" placeholder="Hourly Rate">
+        <input type="number" id="MonthlyIncome" placeholder="Monthly Income">
+        <input type="number" id="MonthlyRate" placeholder="Monthly Rate">
+        <input type="number" id="NumCompaniesWorked" placeholder="Number of Companies Worked">
+        <input type="number" id="PercentSalaryHike" placeholder="Percent Salary Hike">
+        <input type="number" id="TotalWorkingYears" placeholder="Total Working Years">
+        <input type="number" id="TrainingTimesLastYear" placeholder="Training Times Last Year">
+        <input type="number" id="YearsAtCompany" placeholder="Years At Company">
+        <input type="number" id="YearsInCurrentRole" placeholder="Years In Current Role">
+        <input type="number" id="YearsSinceLastPromotion" placeholder="Years Since Last Promotion">
+        <input type="number" id="YearsWithCurrManager" placeholder="Years With Current Manager">
+        
+        <h3>Categorical Inputs</h3>
+        <input type="text" id="BusinessTravel" placeholder="Business Travel">
+        <input type="text" id="Department" placeholder="Department">
+        <input type="number" id="Education" placeholder="Education Level">
+        <input type="text" id="EducationField" placeholder="Education Field">
+        <input type="number" id="EnvironmentSatisfaction" placeholder="Environment Satisfaction">
+        <input type="text" id="Gender" placeholder="Gender">
+        <input type="number" id="JobInvolvement" placeholder="Job Involvement">
+        <input type="number" id="JobLevel" placeholder="Job Level">
+        <input type="text" id="JobRole" placeholder="Job Role">
+        <input type="number" id="JobSatisfaction" placeholder="Job Satisfaction">
+        <input type="text" id="MaritalStatus" placeholder="Marital Status">
+        <input type="text" id="OverTime" placeholder="Over Time">
+        <input type="number" id="PerformanceRating" placeholder="Performance Rating">
+        <input type="number" id="RelationshipSatisfaction" placeholder="Relationship Satisfaction">
+        <input type="number" id="StockOptionLevel" placeholder="Stock Option Level">
+        <input type="number" id="WorkLifeBalance" placeholder="Work Life Balance">
+        
+        <button type="button" onclick="makePrediction()">Predict</button>
+    </form>
+    
+    <p id="result"></p>
+    
+    <script>
+        async function makePrediction() {
+            const numericalInputs = {
+                Age: parseFloat(document.getElementById('Age').value),
+                DailyRate: parseFloat(document.getElementById('DailyRate').value),
+                DistanceFromHome: parseFloat(document.getElementById('DistanceFromHome').value),
+                HourlyRate: parseFloat(document.getElementById('HourlyRate').value),
+                MonthlyIncome: parseFloat(document.getElementById('MonthlyIncome').value),
+                MonthlyRate: parseFloat(document.getElementById('MonthlyRate').value),
+                NumCompaniesWorked: parseFloat(document.getElementById('NumCompaniesWorked').value),
+                PercentSalaryHike: parseFloat(document.getElementById('PercentSalaryHike').value),
+                TotalWorkingYears: parseFloat(document.getElementById('TotalWorkingYears').value),
+                TrainingTimesLastYear: parseFloat(document.getElementById('TrainingTimesLastYear').value),
+                YearsAtCompany: parseFloat(document.getElementById('YearsAtCompany').value),
+                YearsInCurrentRole: parseFloat(document.getElementById('YearsInCurrentRole').value),
+                YearsSinceLastPromotion: parseFloat(document.getElementById('YearsSinceLastPromotion').value),
+                YearsWithCurrManager: parseFloat(document.getElementById('YearsWithCurrManager').value)
+            };
+
+            const categoricalInputs = {
+                BusinessTravel: document.getElementById('BusinessTravel').value,
+                Department: document.getElementById('Department').value,
+                Education: parseInt(document.getElementById('Education').value),
+                EducationField: document.getElementById('EducationField').value,
+                EnvironmentSatisfaction: parseInt(document.getElementById('EnvironmentSatisfaction').value),
+                Gender: document.getElementById('Gender').value,
+                JobInvolvement: parseInt(document.getElementById('JobInvolvement').value),
+                JobLevel: parseInt(document.getElementById('JobLevel').value),
+                JobRole: document.getElementById('JobRole').value,
+                JobSatisfaction: parseInt(document.getElementById('JobSatisfaction').value),
+                MaritalStatus: document.getElementById('MaritalStatus').value,
+                OverTime: document.getElementById('OverTime').value,
+                PerformanceRating: parseInt(document.getElementById('PerformanceRating').value),
+                RelationshipSatisfaction: parseInt(document.getElementById('RelationshipSatisfaction').value),
+                StockOptionLevel: parseInt(document.getElementById('StockOptionLevel').value),
+                WorkLifeBalance: parseInt(document.getElementById('WorkLifeBalance').value)
+            };
+
+            const data = {
+                numerical: numericalInputs,
+                categorical: categoricalInputs
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                document.getElementById('result').textContent = `Prediction: ${result.prediction}`;
+            } catch (error) {
+                console.error('Error making prediction:', error);
+                document.getElementById('result').textContent = 'Error making prediction';
+            }
+        }
+    </script>
+</body>
+</html>
