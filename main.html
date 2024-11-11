@@ -10,38 +10,134 @@
     
     <form id="prediction-form">
         <h3>Numerical Inputs</h3>
-        <input type="number" id="Age" placeholder="Age">
-        <input type="number" id="DailyRate" placeholder="Daily Rate">
-        <input type="number" id="DistanceFromHome" placeholder="Distance From Home">
-        <input type="number" id="HourlyRate" placeholder="Hourly Rate">
-        <input type="number" id="MonthlyIncome" placeholder="Monthly Income">
-        <input type="number" id="MonthlyRate" placeholder="Monthly Rate">
-        <input type="number" id="NumCompaniesWorked" placeholder="Number of Companies Worked">
-        <input type="number" id="PercentSalaryHike" placeholder="Percent Salary Hike">
-        <input type="number" id="TotalWorkingYears" placeholder="Total Working Years">
-        <input type="number" id="TrainingTimesLastYear" placeholder="Training Times Last Year">
-        <input type="number" id="YearsAtCompany" placeholder="Years At Company">
-        <input type="number" id="YearsInCurrentRole" placeholder="Years In Current Role">
-        <input type="number" id="YearsSinceLastPromotion" placeholder="Years Since Last Promotion">
-        <input type="number" id="YearsWithCurrManager" placeholder="Years With Current Manager">
+        <input type="number" id="Age" placeholder="Age" min="0" max="100">
+        <input type="number" id="DailyRate" placeholder="Daily Rate" min="0" max="1000">
+        <input type="number" id="DistanceFromHome" placeholder="Distance From Home" min="0" max="100">
+        <input type="number" id="HourlyRate" placeholder="Hourly Rate" min="0" max="100">
+        <input type="number" id="MonthlyIncome" placeholder="Monthly Income" min="0" max="20000">
+        <input type="number" id="MonthlyRate" placeholder="Monthly Rate" min="0" max="50000">
+        <input type="number" id="NumCompaniesWorked" placeholder="Number of Companies Worked" min="0" max="10">
+        <input type="number" id="PercentSalaryHike" placeholder="Percent Salary Hike" min="0" max="100">
+        <input type="number" id="TotalWorkingYears" placeholder="Total Working Years" min="0" max="50">
+        <input type="number" id="TrainingTimesLastYear" placeholder="Training Times Last Year" min="0" max="10">
+        <input type="number" id="YearsAtCompany" placeholder="Years At Company" min="0" max="50">
+        <input type="number" id="YearsInCurrentRole" placeholder="Years In Current Role" min="0" max="50">
+        <input type="number" id="YearsSinceLastPromotion" placeholder="Years Since Last Promotion" min="0" max="50">
+        <input type="number" id="YearsWithCurrManager" placeholder="Years With Current Manager" min="0" max="50">
         
         <h3>Categorical Inputs</h3>
-        <input type="text" id="BusinessTravel" placeholder="Business Travel">
-        <input type="text" id="Department" placeholder="Department">
-        <input type="number" id="Education" placeholder="Education Level">
-        <input type="text" id="EducationField" placeholder="Education Field">
-        <input type="number" id="EnvironmentSatisfaction" placeholder="Environment Satisfaction">
-        <input type="text" id="Gender" placeholder="Gender">
-        <input type="number" id="JobInvolvement" placeholder="Job Involvement">
-        <input type="number" id="JobLevel" placeholder="Job Level">
-        <input type="text" id="JobRole" placeholder="Job Role">
-        <input type="number" id="JobSatisfaction" placeholder="Job Satisfaction">
-        <input type="text" id="MaritalStatus" placeholder="Marital Status">
-        <input type="text" id="OverTime" placeholder="Over Time">
-        <input type="number" id="PerformanceRating" placeholder="Performance Rating">
-        <input type="number" id="RelationshipSatisfaction" placeholder="Relationship Satisfaction">
-        <input type="number" id="StockOptionLevel" placeholder="Stock Option Level">
-        <input type="number" id="WorkLifeBalance" placeholder="Work Life Balance">
+        <select id="BusinessTravel">
+            <option value="" disabled selected>Select Business Travel</option>
+            <option value="Travel_Rarely">Travel Rarely</option>
+            <option value="Travel_Frequently">Travel Frequently</option>
+            <option value="Non-Travel">Non-Travel</option>
+        </select>
+        <select id="Department">
+            <option value="" disabled selected>Select Department</option>
+            <option value="Sales">Sales</option>
+            <option value="Research & Development">Research & Development</option>
+            <option value="Human Resources">Human Resources</option>
+        </select>
+        <select id="Education">
+            <option value="" disabled selected>Select Education Level</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select id="EducationField">
+            <option value="" disabled selected>Select Education Field</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Life Sciences">Life Sciences</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Medical">Medical</option>
+            <option value="Other">Other</option>
+            <option value="Technical Degree">Technical Degree</option>
+        </select>
+        <select id="EnvironmentSatisfaction">
+            <option value="" disabled selected>Select Environment Satisfaction</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select id="Gender">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <select id="JobInvolvement">
+            <option value="" disabled selected>Select Job Involvement</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select id="JobLevel">
+            <option value="" disabled selected>Select Job Level</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select id="JobRole">
+            <option value="" disabled selected>Select Job Role</option>
+            <option value="Healthcare Representative">Healthcare Representative</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Laboratory Technician">Laboratory Technician</option>
+            <option value="Manager">Manager</option>
+            <option value="Manufacturing Director">Manufacturing Director</option>
+            <option value="Research Director">Research Director</option>
+            <option value="Research Scientist">Research Scientist</option>
+            <option value="Sales Executive">Sales Executive</option>
+            <option value="Sales Representative">Sales Representative</option>
+        </select>
+        <select id="JobSatisfaction">
+            <option value="" disabled selected>Select Job Satisfaction</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select id="MaritalStatus">
+            <option value="" disabled selected>Select Marital Status</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+        </select>        
+        <select id="OverTime">
+            <option value="" disabled selected>Select Over Time</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <select id="PerformanceRating">
+            <option value="" disabled selected>Select Performance Rating</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select id="RelationshipSatisfaction">
+            <option value="" disabled selected>Select Relationship Satisfaction</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select id="StockOptionLevel">
+            <option value="" disabled selected>Select Stock Option Level</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <select id="WorkLifeBalance">
+            <option value="" disabled selected>Select Work Life Balance</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
         
         <button type="button" onclick="makePrediction()">Predict</button>
     </form>
@@ -98,10 +194,13 @@
                     body: JSON.stringify(data)
                 });
 
-                const result = await response.json();
-                document.getElementById('result').textContent = `Prediction: ${result.prediction}`;
+                const resultText = result.prediction === 1 ? 'Yes' : 'No';
+                document.getElementById('result').textContent = `Prediction: ${resultText}`;
+
             } catch (error) {
+                // Log the error to the console for debugging purposes
                 console.error('Error making prediction:', error);
+                // Display a user-friendly error message on the page
                 document.getElementById('result').textContent = 'Error making prediction';
             }
         }
